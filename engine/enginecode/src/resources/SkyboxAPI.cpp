@@ -1,5 +1,5 @@
 #include "engine_pch.h"
-#include "SkyboxAPI.h"
+#include "resources/SkyboxAPI.h"
 
 namespace Engine
 {
