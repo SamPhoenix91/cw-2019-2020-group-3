@@ -220,7 +220,12 @@
         {
           "name": "ParallaxShader",
           "block": "Matrices"
+        },
+        {
+          "name": "SkyboxShader",
+          "block": "Matrices"
         }
+
       ],
       "data": [
         {
@@ -238,6 +243,24 @@
         {
           "type": "pointer",
           "var": "cutOff"
+        }
+      ]
+    },
+    {
+      "name": "SkyboxUBO",
+      "layout": [
+        "SamplerCube"
+      ],
+      "shaders": [
+        {
+          "name": "SkyboxShader",
+          "block": "SkyboxCube"
+        }
+      ],
+      "data": [
+        {
+          "type": "pointer",
+          "var":  "skyboxSampler"
         }
       ]
     },

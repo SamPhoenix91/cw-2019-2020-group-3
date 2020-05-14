@@ -121,11 +121,10 @@ void main()
 layout(location = 0) out vec4 colour;
 in vec3 TexCoordsG;
 out vec4 FragColour;
-uniform samplerCube u_skybox;
 
-
+uniform samplerCube skybox;
 
 void main()
 {
-	FragColour = texture(u_skybox, TexCoordsG);
+	FragColour = texture(skybox, TexCoordsG);
 }

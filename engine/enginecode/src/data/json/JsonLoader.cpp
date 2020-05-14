@@ -1,6 +1,7 @@
 #include "engine_pch.h"
 #include "data/json/JsonLoader.h"
 #include "core/application.h"
+#include "systems/Log.h"
 
 namespace Engine
 {
@@ -213,6 +214,16 @@ namespace Engine
 				
 		}
 
+		if (jsonFile.count("Skybox") > 0)
+		{
+			std::string type = jsonFile["Skybox"]["type"].get<std::string>();
+			if (type.compare("Space") == 0)
+			{
+				layer.getSkybox().reset(Engine::Skybox::createSkybox());
+				LogWarn("SKYBOX SPACE CODE RAN");
+			}
+		}
+
 		if (jsonFile.count("UBO") > 0)
 		{
 			for (auto& ubo : jsonFile["UBO"])
@@ -280,6 +291,10 @@ namespace Engine
 								auto cam = layer.getCamera()->getCamera();
 								auto cam3D = std::static_pointer_cast<Camera3D>(cam);
 								ptr = (void*)&cam3D->getForward();
+							}
+							if (data["var"].get<std::string>().compare("skyboxSampler") == 0)
+							{
+								ptr = (void*)&layer.getSkybox()->getPaths();
 							}
 						}
 						if (type == "Float3")
