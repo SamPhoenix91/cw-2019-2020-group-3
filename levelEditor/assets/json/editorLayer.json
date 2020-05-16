@@ -167,7 +167,6 @@
 
   "Skybox": {
     "type": "Space",
-    "CubemapShader": "CubemapShader",
     "SkyboxShader": "SkyboxShader"
   },
 
@@ -204,6 +203,10 @@
         },
         {
           "name": "ParallaxShader",
+          "block": "Matrices"
+        },
+        {
+          "name": "SkyboxShader",
           "block": "Matrices"
         }
       ],

@@ -15,7 +15,7 @@ namespace Engine
 	class OpenGLSkybox : public Skybox
 	{
 	public:
-		OpenGLSkybox(const std::shared_ptr<Shader> defSkyboxShader, const std::shared_ptr<Shader> defCubemapShader);
+		OpenGLSkybox(const std::shared_ptr<Shader> defSkyboxShader);
 		unsigned int loadCubemap(std::vector<std::string> cubeFaces);
 		unsigned int loadTexture(char const* path);
 		void draw(unsigned int texID);
@@ -34,5 +34,7 @@ namespace Engine
 		std::shared_ptr<Shader> m_skyboxShader;
 		std::shared_ptr<Shader> m_cubemapShader;
 		void* m_data;
+		std::shared_ptr<VertexArray> m_skyboxVAO;
+		std::shared_ptr<VertexArray> m_cubemapVAO;
 	};
 }
