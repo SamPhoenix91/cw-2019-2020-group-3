@@ -4,6 +4,7 @@
 
 Engine::OpenGLSkybox::OpenGLSkybox(const std::shared_ptr<Shader> defSkyboxShader, const std::shared_ptr<Shader> defCubemapShader)
 {
+	glDepthMask(GL_FALSE);
 	float cubeVertices[] = {
 		// positions          // texture Coords
 		-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
@@ -92,7 +93,7 @@ Engine::OpenGLSkybox::OpenGLSkybox(const std::shared_ptr<Shader> defSkyboxShader
 		-1.0f, -1.0f,  1.0f,
 		 1.0f, -1.0f,  1.0f
 	};
-	unsigned int cubeTexture = loadTexture("assets/textures/wood_diffuse.png");
+	unsigned int cubeTexture = loadTexture("assets/textures/skybox/Space_Top.png");
 	unsigned int skyboxTexture = loadCubemap(faces);
 	m_cubemapShader = defCubemapShader;
 	m_skyboxShader = defSkyboxShader;
@@ -136,6 +137,8 @@ Engine::OpenGLSkybox::OpenGLSkybox(const std::shared_ptr<Shader> defSkyboxShader
 	glBindTexture(GL_TEXTURE_CUBE_MAP, skyboxTexture);
 
 	glDrawArrays(GL_TRIANGLES, 0, 36);
+
+	glDepthMask(GL_TRUE);
 
 	glBindVertexArray(0);
 	glDepthFunc(GL_LESS); //change depth check back to normal

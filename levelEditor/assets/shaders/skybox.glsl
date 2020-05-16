@@ -28,13 +28,11 @@ void main()
 #region Fragment
 
 #version 440 core
-			
-layout(location = 0) out vec4 colour;
 
 in vec3 normal;
 in vec3 fragmentPos;
 in vec3 texCoord;
-
+out vec4 colour;
 uniform samplerCube u_skybox;
 
 void main()

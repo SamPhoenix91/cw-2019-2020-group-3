@@ -157,7 +157,7 @@
     "fov": 45.0,
     "aspectRatio": 1.33333,
     "nearClip": 0.1,
-    "farClip": 10000.0
+    "farClip": 100.0
   },
 
   "Renderer": {
